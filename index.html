@@ -48,8 +48,8 @@
                            <button class="btn btn-default"><i class="fas fa-plus" id="caseRise" ></i></button>
 
                         </div>
-                        <h5>$59</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <h5>$ <span id="casePrice">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item" id="cancelCase">
                      </div>
                   </div>
                </div>
@@ -80,7 +80,7 @@
             <!--Java Script Here-->
    <script>
       //For Mobile Set:
-      // for Rising Button ----->
+      // for Rising Quantity Button ----->
       const itemRiseBtn = document.getElementById("itemRise");
       itemRiseBtn.addEventListener("click", function () {
          const itemNumber = document.getElementById("iPhone").value;
@@ -91,7 +91,7 @@
          var priceNumber = document.getElementById("price").innerText;
          var priceCount = parseInt(priceNumber);
          var priceUpdate = riseItem * priceCount;
-         document.getElementById("price").innerText= priceUpdate;
+         document.getElementById("price").innerText = priceUpdate;
       })
       // for Reducing Button ---->
       const itemReduceBtn = document.getElementById("itemReduce");
@@ -120,10 +120,17 @@
          document.getElementById("case").value = reduceCase;
       })
       // ==========================================================================
-      // Cancel Button ------>
+      // Cancel Button for Mobile ------>
       const cancelBtn = document.getElementById("cancel");
       cancelBtn.addEventListener("click", function () {
-         
+         const cancelQuantity = document.getElementById("iPhone").value = "0";
+         const cancelPrice = document.getElementById("price").innerText = "0";
+      })
+      // Cancel Button for Case ------>
+      const cancelCaseBtn = document.getElementById("cancelCase");
+      cancelCaseBtn.addEventListener("click", function () {
+         const cancelQuantity = document.getElementById("case").value = "0";
+         const cancelPrice = document.getElementById("casePrice").innerText = "0";
       })
    </script>
 
