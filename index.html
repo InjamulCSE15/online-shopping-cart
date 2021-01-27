@@ -29,8 +29,8 @@
                            <input type="text" class="form-control text-center" id="iPhone" value="1">
                            <button class="btn btn-default"><i class="fas fa-plus" id="itemRise" ></i></button>
                         </div>
-                        <h5>$1219</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <h5>$<span id="price">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item" id="cancel">
                      </div>
                   </div>
                </div>
@@ -87,6 +87,11 @@
          var count = parseInt(itemNumber);
          var riseItem = count + 1;
          document.getElementById("iPhone").value = riseItem;
+      // for Price Rising 
+         var priceNumber = document.getElementById("price").innerText;
+         var priceCount = parseInt(priceNumber);
+         var priceUpdate = riseItem * priceCount;
+         document.getElementById("price").innerText= priceUpdate;
       })
       // for Reducing Button ---->
       const itemReduceBtn = document.getElementById("itemReduce");
@@ -115,7 +120,11 @@
          document.getElementById("case").value = reduceCase;
       })
       // ==========================================================================
-
+      // Cancel Button ------>
+      const cancelBtn = document.getElementById("cancel");
+      cancelBtn.addEventListener("click", function () {
+         
+      })
    </script>
 
 
