@@ -27,7 +27,7 @@
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus" id="itemReduce"></i></button>
                            <input type="text" class="form-control text-center" id="iPhone" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus" id="itemRise" ></i></button>
+                           <button class="btn btn-default"><i class="fas fa-plus" id="itemRise"></i></button>
                         </div>
                         <h5>$<span id="price">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item" id="cancel">
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus" id="caseReduce"></i></button>
-                           <input type="text" class="form-control text-center" id="case" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus" id="caseRise" ></i></button>
+                           <button id="case-reduce" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="case-count" type="text" class="form-control text-center" value="1">
+                           <button id="case-rise" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$ <span id="casePrice">59</span></h5>
+                        <h5>$<span id="case-price">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item" id="cancelCase">
                      </div>
                   </div>
@@ -77,61 +77,28 @@
          </div>
       </div>
    </section>
-            <!--Java Script Here-->
+   <!--Java Script Here-->
    <script>
-      //For Mobile Set:
-      // for Rising Quantity Button ----->
-      const itemRiseBtn = document.getElementById("itemRise");
-      itemRiseBtn.addEventListener("click", function () {
-         const itemNumber = document.getElementById("iPhone").value;
-         var count = parseInt(itemNumber);
-         var riseItem = count + 1;
-         document.getElementById("iPhone").value = riseItem;
-      // for Price Rising 
-         var priceNumber = document.getElementById("price").innerText;
-         var priceCount = parseInt(priceNumber);
-         var priceUpdate = riseItem * priceCount;
-         document.getElementById("price").innerText = priceUpdate;
+      //Casing Calculation ------>
+      //Case Rising Quantity:
+      document.getElementById('case-rise').addEventListener('click', function () {
+         const caseRise = document.getElementById('case-count');
+         const caseCount = parseInt(caseRise.value);
+         const caseNewCount = caseCount + 1;
+         caseRise.value = caseNewCount;
+         const casePrice = caseNewCount * 59;
+         document.getElementById('case-price').innerText = casePrice;
       })
-      // for Reducing Button ---->
-      const itemReduceBtn = document.getElementById("itemReduce");
-      itemReduceBtn.addEventListener("click", function () {
-         const itemNumber = document.getElementById("iPhone").value;
-         var count = parseInt(itemNumber);
-         var reduceItem = count - 1;
-         document.getElementById("iPhone").value = reduceItem;
+      // Case Decrease Quantity:
+      document.getElementById('case-reduce').addEventListener('click', function () {
+         const caseReduce = document.getElementById('case-count');
+         const caseCount = parseInt(caseReduce.value);
+         const caseNewCount = caseCount - 1;
+         caseReduce.value = caseNewCount;
+         const casePrice = caseNewCount * 59;
+         document.getElementById('case-price').innerText = casePrice;
       })
-      // ===========================================================
-      //For Casing:
-      // for Casing Rising Button ----->
-      const caseRiseBtn = document.getElementById("caseRise");
-      caseRiseBtn.addEventListener("click", function () {
-         const caseNumber = document.getElementById("case").value;
-         var count = parseInt(caseNumber);
-         var riseCase = count + 1;
-         document.getElementById("case").value = riseCase;
-      })
-      // for Reducing Button ---->
-      const caseReduceBtn = document.getElementById("caseReduce");
-      caseReduceBtn.addEventListener("click", function () {
-         const caseNumber = document.getElementById("case").value;
-         var count = parseInt(caseNumber);
-         var reduceCase = count - 1;
-         document.getElementById("case").value = reduceCase;
-      })
-      // ==========================================================================
-      // Cancel Button for Mobile ------>
-      const cancelBtn = document.getElementById("cancel");
-      cancelBtn.addEventListener("click", function () {
-         const cancelQuantity = document.getElementById("iPhone").value = "0";
-         const cancelPrice = document.getElementById("price").innerText = "0";
-      })
-      // Cancel Button for Case ------>
-      const cancelCaseBtn = document.getElementById("cancelCase");
-      cancelCaseBtn.addEventListener("click", function () {
-         const cancelQuantity = document.getElementById("case").value = "0";
-         const cancelPrice = document.getElementById("casePrice").innerText = "0";
-      })
+
    </script>
 
 
