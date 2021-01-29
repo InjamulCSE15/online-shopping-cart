@@ -43,9 +43,9 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button onclick="ProductChangeHandler(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button onclick="ProductChangeHandler('case',false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="case-count" type="text" class="form-control text-center" value="1">
-                           <button onclick="ProductChangeHandler(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="ProductChangeHandler('case',true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
                         <h5>$<span id="case-price">59</span></h5>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="Sub-total">1,278</span></h5>
+                        <h5>$<span id="tax-amount">0</span></h5>
+                        <h5>$<span id="total-cost">1,278</span></h5>
                      </div>
                   </div>
                </div>
@@ -79,24 +79,9 @@
    </section>
    <!--Java Script Here-->
    <script>
-      // iPhone Quantity Calculation ------>
-      function PhoneProductChangeHandler(isIncrease) {
-         const PhoneInput = document.getElementById('iPhone');
-         const PhoneCount = parseInt(PhoneInput.value);
-         let PhoneNewCount = PhoneCount;
-         if (isIncrease == true) {
-            PhoneNewCount = PhoneCount + 1;
-         }
-         if (isIncrease == false && PhoneCount > 0) {
-            PhoneNewCount = PhoneCount - 1;
-         }
-         PhoneInput.value = PhoneNewCount;
-         const PhonePrice = PhoneNewCount * 1219;
-         document.getElementById('phone-price').innerText = PhonePrice;
-      }
-      //Casing Quantity Calculation ------>
-      function ProductChangeHandler(isIncrease) {
-         const caseInput = document.getElementById('case-count');
+      // Phone & Case function adjust:
+       function ProductChangeHandler(product, isIncrease) {
+         const caseInput = document.getElementById(product + '-count');
          const caseCount = parseInt(caseInput.value);
          let caseNewCount = caseCount;
          if (isIncrease == true) {
@@ -107,8 +92,51 @@
          }
          caseInput.value = caseNewCount;
          const casePrice = caseNewCount * 59;
-         document.getElementById('case-price').innerText = casePrice;
+         document.getElementById(product + '-price').innerText = casePrice;
       }
+      // // iPhone Quantity Calculation ------>
+      // function PhoneProductChangeHandler(isIncrease) {
+      //    const PhoneInput = document.getElementById('iPhone');
+      //    const PhoneCount = parseInt(PhoneInput.value);
+      //    let PhoneNewCount = PhoneCount;
+      //    if (isIncrease == true) {
+      //       PhoneNewCount = PhoneCount + 1;
+      //    }
+      //    if (isIncrease == false && PhoneCount > 0) {
+      //       PhoneNewCount = PhoneCount - 1;
+      //    }
+      //    PhoneInput.value = PhoneNewCount;
+      //    const PhonePrice = PhoneNewCount * 1219;
+      //    document.getElementById('phone-price').innerText = PhonePrice;
+      // }
+      // //Casing Quantity Calculation ------>
+      // function ProductChangeHandler(isIncrease) {
+      //    const caseInput = document.getElementById('case-count');
+      //    const caseCount = parseInt(caseInput.value);
+      //    let caseNewCount = caseCount;
+      //    if (isIncrease == true) {
+      //       caseNewCount = caseCount + 1;
+      //    }
+      //    if (isIncrease == false && caseCount > 0) {
+      //       caseNewCount = caseCount - 1;
+      //    }
+      //    caseInput.value = caseNewCount;
+      //    const casePrice = caseNewCount * 59;
+      //    document.getElementById('case-price').innerText = casePrice;
+      // }
+      // function totalCalculation(params) {
+      //    const phoneInput = document.getElementById('iPhone');
+      //    const phoneCount = parseInt(phoneInput.value);
+
+      //    const 
+      // }
+
+
+
+
+
+
+
       //Casing Calculation ------>
       //Case Rising Quantity:
       // document.getElementById('case-rise').addEventListener('click', function () {
